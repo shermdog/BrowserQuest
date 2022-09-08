@@ -3,6 +3,7 @@ var cls = require("./lib/class"),
     _ = require("underscore"),
     Character = require('./character'),
     Chest = require('./chest'),
+    log = require('./lib/log.js'),
     Messages = require("./message"),
     Utils = require("./utils"),
     Properties = require("./properties"),
@@ -80,7 +81,7 @@ module.exports = Player = Character.extend({
                     bcrypt.genSalt(10, function(err, salt) {
                         bcrypt.hash(self.pw, salt, function(err, hash) {
                             log.info("CREATE: " + self.name);
-                            self.email = Utils.sanitize(message[3]);
+                            // self.email = Utils.sanitize(message[3]);
                             self.pw = hash;
                             databaseHandler.createPlayer(self);
                         })

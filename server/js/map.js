@@ -2,6 +2,7 @@ var cls = require('./lib/class')
     _ = require('underscore');
 var fs = require('fs');
 var file = require('../../shared/js/file');
+var log = require('./lib/log.js');
 var path = require('path');
 var Utils = require('./utils');
 var Checkpoint = require('./checkpoint');

@@ -5,15 +5,8 @@ var _ = require('underscore');
 
 
 function main(config) {
-    var Log = require('log');
-    switch(config.debug_level) {
-        case "error":
-            log = new Log(Log.ERROR); break;
-        case "debug":
-            log = new Log(Log.DEBUG); break;
-        case "info":
-            log = new Log(Log.INFO); break;
-    };
+    // var Log = require('log');
+    var log=require('./lib/log.js');
 
     var production_config = new ProductionConfig(config);
     if(production_config.inProduction()) {

@@ -96,13 +96,20 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                 };
             });
 
-            $('#create-new span').click(function() {
-                app.animateParchment('loadcharacter', 'confirmation');
-            });
+            // $('#create-new span').click(function() {
+            //     app.animateParchment('loadcharacter', 'confirmation');
+            // });
+            //
+            // $('#continue span').click(function() {
+            //     app.storage.clear();
+            //     app.animateParchment('confirmation', 'createcharacter');
+            //     $('body').removeClass('returning');
+            //     app.clearValidationErrors();
+            // });
 
-            $('#continue span').click(function() {
+            $('#create-new span').click(function() {
                 app.storage.clear();
-                app.animateParchment('confirmation', 'createcharacter');
+                app.animateParchment('loadcharacter', 'createcharacter');
                 $('body').removeClass('returning');
                 app.clearValidationErrors();
             });
@@ -264,7 +271,7 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                     setTotalPlayersString("players");
                 }
             });
-            					
+
             game.onGuildPopulationChange( function(guildName, guildPopulation) {
 				var setGuildPlayersString = function(string) {
 					$("#guild-population").find("span:nth-child(2)").text(string);
@@ -293,7 +300,7 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
             $('#nameinput').attr('value', '');
             $('#pwinput').attr('value', '');
             $('#pwinput2').attr('value', '');
-            $('#emailinput').attr('value', '');
+            // $('#emailinput').attr('value', '');
            $('#chatbox').attr('value', '');
 
             if(game.renderer.mobile || game.renderer.tablet) {
@@ -367,7 +374,7 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
 
             $(document).keyup(function(e) {
                 var key = e.which;
-                
+
                 if (game.started && !$('#chatbox').hasClass('active'))
                 {
                     switch(key) {
@@ -581,8 +588,8 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                         hpg.css('display', 'block');
 
                         setInterval(function () {
-                            if(((game.player.hitPoints / game.player.maxHitPoints) <= game.hpGuide) && 
-                               (game.healShortCut >= 0) && 
+                            if(((game.player.hitPoints / game.player.maxHitPoints) <= game.hpGuide) &&
+                               (game.healShortCut >= 0) &&
                                Types.isHealingItem(game.player.inventory[game.healShortCut]) &&
                                (game.player.inventoryCount[game.healShortCut] > 0)
                               ) {

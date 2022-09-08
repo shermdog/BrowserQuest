@@ -1,11 +1,12 @@
 var _ = require('underscore');
 var Types = require('../../shared/js/gametypes');
+var log = require('./lib/log.js');
 
 (function () {
     FormatChecker = Class.extend({
         init: function () {
             this.formats = [];
-            this.formats[Types.Messages.CREATE] = ['s', 's', 's'],
+            this.formats[Types.Messages.CREATE] = ['s', 's'],
             this.formats[Types.Messages.LOGIN] = ['s', 's'],
             this.formats[Types.Messages.MOVE] = ['n', 'n'],
             this.formats[Types.Messages.LOOTMOVE] = ['n', 'n', 'n'],

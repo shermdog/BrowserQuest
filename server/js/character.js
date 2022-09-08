@@ -1,4 +1,5 @@
 var Entity = require('./entity');
+var log = require('./lib/log.js');
 var Messages = require('./message');
 var Utils = require('./utils');
 
@@ -91,4 +92,3 @@ var Character = Entity.extend({
 });
 
 module.exports = Character;
-

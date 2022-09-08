@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var Character = require('./character');
 var ChestArea = require('./chestarea');
+var log = require('./lib/log.js');
 var Messages = require('./message');
 var MobArea = require('./mobarea');
 var Properties = require('./properties');
@@ -98,12 +99,12 @@ var Mob = Character.extend({
         return null;
       }
     },
-    
+
     getHatedPlayerId: function(hateRank) {
         var i, playerId,
             sorted = _.sortBy(this.hatelist, function(obj) { return obj.hate; }),
             size = _.size(this.hatelist);
-        
+
         if(hateRank && hateRank <= size) {
             i = size - hateRank;
         }
@@ -124,10 +125,10 @@ var Mob = Character.extend({
         if(sorted && sorted[i]) {
             playerId = sorted[i].id;
         }
-        
+
         return playerId;
     },
-    
+
     forgetPlayer: function(playerId, duration) {
         this.hatelist = _.reject(this.hatelist, function(obj) { return obj.id === playerId; });
         this.tankerlist = _.reject(this.tankerlist, function(obj) { return obj.id === playerId; });

@@ -3,6 +3,7 @@ var Utils = require('../utils');
 var cls = require("../lib/class"),
     Player = require('../player'),
     Messages = require("../message"),
+    log = require('../lib/log.js'),
     redis = require("redis"),
     bcrypt = require("bcrypt");
 
@@ -201,7 +202,6 @@ module.exports = DatabaseHandler = cls.Class.extend({
                 client.multi()
                     .sadd("usr", player.name)
                     .hset(userKey, "pw", player.pw)
-                    .hset(userKey, "email", player.email)
                     .hset(userKey, "armor", "clotharmor")
                     .hset(userKey, "avatar", "clotharmor")
                     .hset(userKey, "weapon", "sword1")

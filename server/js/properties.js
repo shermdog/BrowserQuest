@@ -1,6 +1,8 @@
 
 var Types = require("../../shared/js/gametypes");
 
+var log = require('./lib/log.js');
+
 var Properties = {
     rat: {
         drops: {

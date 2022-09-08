@@ -3,6 +3,7 @@ var BISON = require('bison');
 var useBison = false;
 var cls = require('./lib/class');
 var http = require('http');
+var log = require('./lib/log.js');
 var socketio = require('socket.io');
 var url = require('url');
 var Utils = require('./utils');
@@ -76,7 +77,7 @@ var Connection = cls.Class.extend({
     },
 
     close: function (logError) {
-        log.info('Closing connection to ' + this._connection.remoteAddress + '. Error: ' + logError);
+        log.error('Closing connection to ' + this._connection.remoteAddress + '. Error: ' + logError);
         this._connection.conn.close();
     }
 });
